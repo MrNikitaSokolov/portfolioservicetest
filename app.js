@@ -26,3 +26,10 @@ app.listen(appEnv.port, '0.0.0.0', function() {
   // print a message when the server starts listening
   console.log("server starting on " + appEnv.url);
 });
+
+app.get('/status', function(req, res){
+    res.send({
+        name: 'Stock Portfolio',
+        description: 'A portfolio service is a grouping of stocks that directed by investors and/or managed by financial professionals.'
+    });
+});
