@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stock Portfolio</title>
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="Portfolio">
+        <h1>Portfolio</h1>
+        <table id="stockTable" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Open</th>
+                <th>Close</th>
+                <th>Percentage Change</th>
+                <th>Low</th>
+                <th>High</th>
+                <th>Delete</th></tr></thead>
+        </table>
+        <form id="stockForm" name="stockForm" class="input-group-lg center-block stockForm" method="POST" action="http://localhost:3000/api/stocks" onsubmit="return submit_form(this)" required>
+            <p class="lead">Add a stock</p>
+            <input name="stockname" type="text" placeholder="stock name" aria-describedby="sizing-addon1" MAXLENGTH="50"/>
+            <input type="button" onclick="submit_form()" value="Submit" witdh="120px" />
+        </form>
+        <p id="response" class="lead text-center"></p>
+
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+<script>
+document.getElementById("stockForm").elements[0].onkeydown = stockValidate(this);
+
+function formClear(){
+  $("#stockname").val("");
+}
+
+function stockValidate() {
+  var e = document.forms[0].stockname.value;
+  var keychar = String.fromCharCode(e.which);
+  if ((keychar >="a" && keychar <="z" )||(keychar >="Z" && keychar <="Z" )|| keychar==" "){
+    console.log("stock : " + e);
+    return true;
+  }else{
+    return false;
+  }
+}
+
+function is_form_empty(){
+  var input_str = document.forms[0].stockname.value;
+  var input_len = input_str.length;
+  if (input_len == 0){
+    alert("Please enter a Stock.");
+    document.forms[0].stockname.focus();
+    return true;
+  }
+  return false;
+}
+
+function submit_form(){
+  if ((is_form_empty()==false) && (stockValidate()==true)){
+    document.forms[0].submit();
+    console.log(form);
+  }
+}
+</script>
+</html>

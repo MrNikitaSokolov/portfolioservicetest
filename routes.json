@@ -1,0 +1,5 @@
+{
+  "/api/" : "/",
+  "/stocks/:resource/:id/show": "/:resource/:id",
+  "/stocks/:name": "/stocks?category=:category"
+}
