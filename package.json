@@ -1,6 +1,6 @@
 {
   "name": "stockPortfolio",
-  "main": "server.js",
+  "main": "app.js",
   "description": "An introduction to developing Node.js apps on the Bluemix platform",
   "version": "0.1.1",
   "private": false,
@@ -8,11 +8,11 @@
     "node": "4.*"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/IBM-Bluemix/get-started-node"
+    "url": "https://github.com/IBM-Bluemix/portfolioservicetest"
   },
   "dependencies": {
     "body-parser": "^1.16.1",
