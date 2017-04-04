@@ -21,7 +21,7 @@ stockPortfolio.controller('mainController', function($scope, $http){
           console.log("error fetching companies")
       });
   }
-  getCompanies();
+  // getCompanies(); // for use with a list to limit user input
   // when landing, get all stocks and show them
   refreshStocks();
 
